@@ -48,7 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
 
+    //Provider State
     final authViewModel = Provider.of<AuthViewModel>(context);
+
     final height = MediaQuery.of(context).size.height * 1;
 
 
