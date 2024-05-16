@@ -14,7 +14,7 @@ class SplashServices{
 
     getUserDate().then((value)async{
 
-      if(value.token == null || value.token == ''){
+      if(value.token == 'null' || value.token == ''){
 
         await Future.delayed(Duration(seconds: 3));
         Navigator.pushNamed(context, RoutesName.login);
