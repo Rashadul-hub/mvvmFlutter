@@ -4,6 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:mvvm/repository/auth_repository.dart';
 import 'package:mvvm/utlis/general_utils.dart';
 import 'package:mvvm/utlis/routes/routes_name.dart';
+import 'package:mvvm/view_model/user_view_model.dart';
+import 'package:provider/provider.dart';
+
+import '../model/user_model.dart';
 
 class AuthViewModel with ChangeNotifier{
 
@@ -14,8 +18,6 @@ class AuthViewModel with ChangeNotifier{
 
   bool _signUpLoading = false;
   bool get signUpLoading => _signUpLoading;
-
-
 
 
 
@@ -40,6 +42,12 @@ class AuthViewModel with ChangeNotifier{
 
       setLoadingForLogIn(false);
 
+      final userPreference = Provider.of<UserViewModel>(context, listen: false);
+      userPreference.saveUser(
+        UserModel(
+          token: value['token'].toString()
+        )
+      );
 
       //Go To Next Screen After Login Successful.
       Navigator.pushNamed(context, RoutesName.home);

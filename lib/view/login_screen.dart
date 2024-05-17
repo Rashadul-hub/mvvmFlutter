@@ -122,10 +122,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     Utils.flushBarErrorMessage('Password Should be Minimum 6 digit', context);
                   }else{
 
+                    //Main Code
+                    // Map data ={
+                    //   //This 'email' & 'password' name should be same as from api
+                    //   'email' : _emailController.text.toString(),
+                    //   'password' : _passwordController.text.toString(),
+                    // };
+
                     Map data ={
-                      //This 'email' & 'password' name should be same as from api
-                      'email' : _emailController.text.toString(),
-                      'password' : _passwordController.text.toString(),
+                       'email' : 'eve.holt@reqres.in',
+                      'password' : 'cityslicka',
                     };
 
                     authViewModel.loginApi(data,context);
